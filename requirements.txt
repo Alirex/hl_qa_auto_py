@@ -1,0 +1,14 @@
+# [code_style]-[BEGIN]
+# Pre-commit hook.
+pre-commit==3.2.2
+# Upgrade syntax.
+pyupgrade==3.3.2
+# Formatter. Apply codestyle.
+black==23.3.0
+# Check codestyle
+flake8==6.0.0
+# Checks Python source files for errors
+pyflakes==3.0.1
+# Removes unused imports and unused variables
+autoflake==2.1.1
+# [code_style]-[END]
