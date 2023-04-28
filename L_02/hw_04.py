@@ -10,12 +10,22 @@ Enter b: 5
 """
 
 
+def print_by_f_strings(a: int, b: int) -> None:
+    print(f"{a} + {b} = {a + b}")
+    print(f"{a} * {b} = {a * b}")
+
+
+def print_by_separators(a: int, b: int) -> None:
+    print(a, "+", b, "=", a + b, sep=" ")
+    print(a, "*", b, "=", a * b, sep=" ")
+
+
 def main() -> None:
     a = int(input("Enter a: "))
     b = int(input("Enter b: "))
 
-    print(f"{a} + {b} = {a + b}")
-    print(f"{a} * {b} = {a * b}")
+    print_by_f_strings(a, b)
+    print_by_separators(a, b)
 
 
 if __name__ == "__main__":
