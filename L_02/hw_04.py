@@ -16,8 +16,8 @@ def print_by_f_strings(a: int, b: int) -> None:
 
 
 def print_by_separators(a: int, b: int) -> None:
-    print(a, "+", b, "=", a + b, sep=" ")
-    print(a, "*", b, "=", a * b, sep=" ")
+    print(a, "+", b, "=", a + b)
+    print(a, "*", b, "=", a * b)
 
 
 def main() -> None:
