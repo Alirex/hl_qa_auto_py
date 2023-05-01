@@ -34,21 +34,28 @@
   *   *
    ***
 """
+from typing import TypeAlias
+
+T_TILE: TypeAlias = str
+T_TILES: TypeAlias = str
 
 
 def build_diamond(
     min_width: int,
     max_width: int,
     #
-    tile__line: str = "*",
-    tile__background: str = " ",
+    tile__line: T_TILE = "*",
+    tile__background: T_TILE = " ",
     is_use_right_padding: bool = False,
 ) -> None:
     if min_width > max_width:
         print("Minimal width is greater than maximal width!")
         return
-    if (max_width - min_width) % 2 != 0:
+    elif (max_width - min_width) % 2 != 0:
         print("Difference between maximal and minimal width is not even!")
+        return
+    elif min_width <= 0 or max_width <= 0:
+        print("Width should be positive!")
         return
 
     if min_width == max_width:
@@ -71,22 +78,22 @@ def build_diamond(
         is_full_line = height_level in (1, full_height)
 
         # [build_line]-[BEGIN]
+        padding_line: T_TILES = tile__background * padding
         line_as_list = [
-            tile__background * padding,
+            padding_line,
+            tile__line,
         ]
-        if width == 1:
-            line_as_list.append(tile__line)
-        else:
+
+        if width > 1:
             line_as_list.extend(
                 [
-                    tile__line,
                     (tile__line if is_full_line else tile__background) * (width - 2),
                     tile__line,
                 ]
             )
 
         if is_use_right_padding:
-            line_as_list.append(tile__background * padding)
+            line_as_list.append(padding_line)
 
         print(
             "".join(line_as_list),
