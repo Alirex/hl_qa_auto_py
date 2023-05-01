@@ -42,6 +42,7 @@ def build_diamond(
     #
     tile__line: str = "*",
     tile__background: str = " ",
+    is_use_right_padding: bool = False,
 ) -> None:
     if min_width > max_width:
         print("Minimal width is greater than maximal width!")
@@ -69,14 +70,28 @@ def build_diamond(
 
         is_full_line = height_level in (1, full_height)
 
+        # [build_line]-[BEGIN]
+        line_as_list = [
+            tile__background * padding,
+        ]
+        if width == 1:
+            line_as_list.append(tile__line)
+        else:
+            line_as_list.extend(
+                [
+                    tile__line,
+                    (tile__line if is_full_line else tile__background) * (width - 2),
+                    tile__line,
+                ]
+            )
+
+        if is_use_right_padding:
+            line_as_list.append(tile__background * padding)
+
         print(
-            tile__background * padding,
-            tile__line,
-            (tile__line if is_full_line else tile__background) * (width - 2),
-            tile__line,
-            tile__background * padding,
-            sep="",
+            "".join(line_as_list),
         )
+        # [build_line]-[END]
 
         if width_change:
             if width == max_width:
@@ -87,12 +102,21 @@ def build_diamond(
 
 def main() -> None:
     # build_diamond(
-    #     min_width=4,
+    #     min_width=1,
+    #     max_width=1,
+    #     #
+    #     # min_width=1,
+    #     # max_width=9,
+    #     #
+    #     # min_width=4,
+    #     # max_width=10,
+    #     #
     #     # min_width=10,
-    #     max_width=10,
+    #     # max_width=10,
     #     #
     #     tile__line='0',
     #     tile__background='-',
+    #     is_use_right_padding=True,
     # )
 
     min_width = int(input("Enter minimal width: "))
