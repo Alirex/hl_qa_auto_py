@@ -10,6 +10,9 @@ from typing import Final
 
 from faker import Faker
 
+ROOT_DIR: Final[pathlib.Path] = pathlib.Path(__file__).parents[1]
+FILES_DIR: Final[pathlib.Path] = ROOT_DIR / "files_temp"
+
 
 @dataclass
 class ResultLine:
@@ -32,10 +35,6 @@ def get_longest_line(file_path: pathlib.Path) -> ResultLine:
                 result_line.content = content
                 result_line.line_number = index
     return result_line
-
-
-ROOT_DIR: Final[pathlib.Path] = pathlib.Path(__file__).parents[1]
-FILES_DIR: Final[pathlib.Path] = ROOT_DIR / "files_temp"
 
 
 def generate_file_if_not_exist(
