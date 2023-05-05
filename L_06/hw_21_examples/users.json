@@ -1,0 +1,1 @@
+[{"name": "user1", "age": 34, "phones": ["+3804454545"]}, {"name": "user2", "age": 23, "phones": []}, {"name": "user3", "age": null, "phones": []}, {"name": "user4", "age": null, "phones": ["+5635665335"]}, {"name": "user5", "age": 25, "phones": ["+6563663", "+3333635635"]}, {"name": "user6", "age": null, "phones": []}]
