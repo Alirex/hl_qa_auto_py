@@ -5,7 +5,7 @@ import pytest
 from L_09.hw_29 import (
     linearize_list,
     linearize_list_by_deque,
-    lst,
+    get_lst,
     example_lst,
 )
 
@@ -18,5 +18,5 @@ from L_09.hw_29 import (
     ),
 )
 def test_benchmark__linearize__simple(action: Callable, benchmark: Callable) -> None:
-    result = benchmark(action, lst)
+    result = benchmark(action, get_lst())
     assert result == example_lst

@@ -56,11 +56,15 @@ def linearize_list_by_deque(
     return result
 
 
-lst = [1, 2, [3, 4, [5, 6], 7], 8, [9, [10]], 11]
+def get_lst() -> T_NESTED_LIST_WITH_POSSIBLE_NESTED_LISTS:
+    return [1, 2, [3, 4, [5, 6], 7], 8, [9, [10]], 11]
+
+
 example_lst = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
 
 def main() -> None:
+    lst = get_lst()
     print(f"{lst=}")
     print(f"{example_lst=}")
 
