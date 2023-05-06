@@ -32,9 +32,11 @@ def custom_map_2(function: Callable[[T, ...], T], *sequences: Iterable[T]) -> li
 
     while True:
         try:
-            result.append(function(*[next(item) for item in iterables]))
+            data = function(*[next(item) for item in iterables])
         except StopIteration:
             break
+        else:
+            result.append(data)
     return result
 
 
