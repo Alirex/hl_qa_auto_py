@@ -29,7 +29,7 @@ DecoratedFunc = Callable[Param, ReturnType]
 
 
 def skip(condition: bool, reason: str):
-    def params_decorator(func: OriginalFunc) -> DecoratedFunc:
+    def decorator(func: OriginalFunc) -> DecoratedFunc:
         @wraps(func)
         def wrapper(*args, **kwargs) -> ReturnType:
             if condition:
@@ -39,7 +39,7 @@ def skip(condition: bool, reason: str):
 
         return wrapper
 
-    return params_decorator
+    return decorator
 
 
 @skip(condition=True, reason="Skipped because of JIRA-123 bug")
